@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import {
   BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
-import { connect } from 'react-redux';
 
 import { setList, setApproved, setRejected, setHashtag, setWatching, setLanguage } from './actions';
 import useSocket from "./hooks/Socket";
@@ -12,18 +11,21 @@ import AdminPanel from "./screens/AdminPanel";
 import ScreenView from "./screens/ScreenView";
 
 import './App.css';
+import { useDispatch } from "react-redux";
 
-function App({ setList, setApproved, setRejected, setHashtag, setWatching, setLanguage }) {
+function App() {
   let socket = useSocket();
 
-  const setData = data => {
-    setList(data.list);
-    setApproved(data.approved);
-    setRejected(data.rejected);
-    setHashtag(data.hashtag);
-    setWatching(data.watching);
-    setLanguage(data.language);
-  }
+  const dispatch = useDispatch();
+
+  const setData = useCallback(data => {
+    dispatch(setList(data.list));
+    dispatch(setApproved(data.approved));
+    dispatch(setRejected(data.rejected));
+    dispatch(setHashtag(data.hashtag));
+    dispatch(setWatching(data.watching));
+    dispatch(setLanguage(data.language));
+  }, [dispatch]);
 
   useEffect(() => {
     if (!socket) return;
@@ -31,7 +33,7 @@ function App({ setList, setApproved, setRejected, setHashtag, setWatching, setLa
       setData(data);
     });
     socket.on("change", data => setData(data));
-  }, [socket]);
+  }, [socket, setData]);
 
   return (
     <BrowserRouter>
@@ -47,16 +49,5 @@ function App({ setList, setApproved, setRejected, setHashtag, setWatching, setLa
   );
 }
 
-const mapDispatchToProps = dispatch => ({
-  setList: items => dispatch(setList(items)),
-  setApproved: items => dispatch(setApproved(items)),
-  setRejected: items => dispatch(setRejected(items)),
-  setHashtag: hashtag => dispatch(setHashtag(hashtag)),
-  setWatching: watching => dispatch(setWatching(watching)),
-  setLanguage: language => dispatch(setLanguage(language)),
-});
 
-export default React.memo(connect(
-  () => ({}),
-  mapDispatchToProps
-)(App));
+export default React.memo(App);

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../services/api';
-import { setHashtag, setWatching, setLanguage } from '../../actions';
+import { setWatching } from '../../actions';
 import { Button, Row, Form, InputGroup, Container } from 'react-bootstrap';
 import TweetList from '../../components/TweetList';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Header } from './styles';
 
 const SUPPORTED_LANGUAGES = {
@@ -20,9 +20,18 @@ const SUPPORTED_LANGUAGES = {
     es: 'Espanhol',
 }
 
-function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
-    const [query, setQuery] = useState(hashtag);
-    const [lang, setLang] = useState(language);
+function ScreenView() {
+    const hashtag = useSelector(state => state.hashtag);
+    const list = useSelector(state => state.list);
+    const approved = useSelector(state => state.approved);
+    const rejected = useSelector(state => state.rejected);
+    const watching = useSelector(state => state.watching);
+    const language = useSelector(state => state.language);
+
+    const dispatch = useDispatch();
+
+    const [query, setQuery] = useState('');
+    const [lang, setLang] = useState('');
 
     useEffect(() => {
         setQuery(hashtag);
@@ -36,7 +45,7 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
         const url = '/watch/' + encodeURIComponent(query) + "?lang=" + lang;
         api.get(url).then(({ data }) => {
             if (data.status.toString() === "1") {
-                setWatching(true);
+                dispatch(setWatching(true));
             }
         }).catch(e => { });
     }
@@ -44,7 +53,15 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
     const stopWatching = () => {
         api.get('/stop').then(({ data }) => {
             if (data.status.toString() === "1") {
-                setWatching(true);
+                dispatch(setWatching(false));
+            }
+        }).catch(e => { });
+    }
+
+    const clearTweets = () => {
+        api.get('/clear').then(({ data }) => {
+            if (data.status.toString() === "1") {
+                dispatch(setWatching(false));
             }
         }).catch(e => { });
     }
@@ -53,7 +70,7 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
         <>
             <Header expand={!watching}>
                 <div>
-                    LOGO
+                    Twitter Hashtag Watcher
                 </div>
                 <div>
                     <InputGroup>
@@ -67,11 +84,16 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
                         </Form.Control>
 
                         <InputGroup.Append>
-                            <Button variant="secondary" onClick={() => watching ? stopWatching() : startWatching()}>
+                            <Button variant="dark" onClick={() => watching ? stopWatching() : startWatching()}>
                                 {watching ? "Parar" : "Começar"}
                             </Button>
                         </InputGroup.Append>
                     </InputGroup>
+                </div>
+                <div>
+                    <Button variant="dark" onClick={() => clearTweets()}>
+                        Limpar
+                    </Button>
                 </div>
             </Header>
             <div style={{ height: '90px' }}></div>
@@ -86,21 +108,4 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
     );
 }
 
-const mapStateToProps = ({ list, approved, rejected, hashtag, watching, language }) => ({
-    list,
-    approved,
-    rejected,
-    hashtag,
-    watching,
-    language
-});
-
-const mapDispatchToProps = dispatch => ({
-    setHashtag: hashtag => dispatch(setHashtag(hashtag)),
-    setLanguage: language => dispatch(setLanguage(language)),
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ScreenView);
+export default React.memo(ScreenView);

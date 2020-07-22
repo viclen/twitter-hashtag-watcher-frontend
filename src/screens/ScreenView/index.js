@@ -1,14 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import TweetCard from '../../components/TweetCard';
 import { Mosaic, Hashtag } from './style';
-import './main.css';
+import './style.css';
 import { Container } from 'react-bootstrap';
 
-function ScreenView({ approved, hashtag }) {
+function ScreenView() {
+    const approved = useSelector(state => state.approved);
+    const hashtag = useSelector(state => state.hashtag);
+
     return (
         <Container fluid={true}>
+            <h1 className="text-center py-3 text-dark">
+                {hashtag}
+            </h1>
+
             <Mosaic>
                 {approved.map(tweet => (
                     <div className="item" key={tweet.id}>
@@ -16,19 +23,8 @@ function ScreenView({ approved, hashtag }) {
                     </div>
                 ))}
             </Mosaic>
-
-            <Hashtag>
-                {hashtag}
-            </Hashtag>
         </Container>
     );
 }
 
-const mapStateToProps = ({ approved, hashtag }) => ({
-    approved,
-    hashtag
-});
-
-export default React.memo(connect(
-    mapStateToProps
-)(ScreenView));
+export default React.memo(ScreenView);
