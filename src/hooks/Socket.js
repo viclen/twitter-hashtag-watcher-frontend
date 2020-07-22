@@ -5,6 +5,7 @@ export default function useSocket() {
     const [socket, setSocket] = useState(null);
 
     const handleErrors = (e) => {
+        
     }
 
     useEffect(() => {

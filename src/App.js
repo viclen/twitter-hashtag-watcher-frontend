@@ -7,12 +7,12 @@ import {
 import { connect } from 'react-redux';
 import { Container } from "react-bootstrap";
 
-import { setList, setApproved, setRejected, setHashtag, setWatching } from './actions';
+import { setList, setApproved, setRejected, setHashtag, setWatching, setLanguage } from './actions';
 import useSocket from "./hooks/Socket";
 import AdminPanel from "./screens/AdminPanel";
 import ScreenView from "./screens/ScreenView";
 
-function App({ setList, setApproved, setRejected, setHashtag, setWatching }) {
+function App({ setList, setApproved, setRejected, setHashtag, setWatching, setLanguage }) {
   let socket = useSocket();
 
   const setData = data => {
@@ -21,6 +21,7 @@ function App({ setList, setApproved, setRejected, setHashtag, setWatching }) {
     setRejected(data.rejected);
     setHashtag(data.hashtag);
     setWatching(data.watching);
+    setLanguage(data.language);
   }
 
   useEffect(() => {
@@ -56,7 +57,8 @@ const mapDispatchToProps = dispatch => ({
   setApproved: items => dispatch(setApproved(items)),
   setRejected: items => dispatch(setRejected(items)),
   setHashtag: hashtag => dispatch(setHashtag(hashtag)),
-  setWatching: watching => dispatch(setWatching(watching))
+  setWatching: watching => dispatch(setWatching(watching)),
+  setLanguage: language => dispatch(setLanguage(language)),
 });
 
 export default React.memo(connect(

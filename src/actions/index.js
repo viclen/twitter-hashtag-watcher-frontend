@@ -22,3 +22,8 @@ export const setWatching = watching => ({
     type: "SET_WATCHING",
     watching
 });
+
+export const setLanguage = language => ({
+    type: "SET_LANGUAGE",
+    language
+});

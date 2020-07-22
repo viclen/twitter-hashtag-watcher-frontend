@@ -1,6 +1,7 @@
 const tweets = (state = {
     hashtag: "",
     watching: "",
+    language: "",
     rejected: [],
     approved: [],
     list: [],
@@ -20,6 +21,9 @@ const tweets = (state = {
             break;
         case 'SET_WATCHING':
             state.watching = action.watching;
+            break;
+        case 'SET_LANGUAGE':
+            state.language = action.language;
             break;
         default:
             return state
