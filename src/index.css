@@ -10,10 +10,15 @@ code {
 }
 
 body, html {
-  background-color: #F1F1F1 !important;
-  color: #474747;
+  background-color: #e5edf1 !important;
+  color: #707f8c;
 }
 
-.title {
-  color: #474747;
+.btn-dark {
+  background-color: #2a3742 !important;
+  border-color: #2a3742 !important;
+}
+
+.text-dark {
+  color: #2a3742 !important;
 }
