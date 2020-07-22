@@ -2,6 +2,9 @@ import React from 'react'
 import api from '../../services/api';
 import { Card } from './style';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
+
 function TweetCard({ text, user, id, options = {} }) {
     const approveTweet = () => {
         api.get(`/tweet/${id}/approve`).then(r => {
@@ -38,23 +41,17 @@ function TweetCard({ text, user, id, options = {} }) {
                 <div>
                     {!!options.approve &&
                         <button className="btn-action" onClick={() => approveTweet()}>
-                            <span role="img" aria-label="aprovar">
-                                👍
-                            </span>
+                            <FontAwesomeIcon color="#707f8c" icon={faThumbsUp} />
                         </button>
                     }
                     {!!options.reject &&
                         <button className="btn-action" onClick={() => rejectTweet()}>
-                            <span role="img" aria-label="rejeitar">
-                                👎
-                            </span>
+                            <FontAwesomeIcon color="#707f8c" icon={faThumbsDown} />
                         </button>
                     }
                     {!!options.delete &&
                         <button className="btn-action" onClick={() => deleteTweet()}>
-                            <span role="img" aria-label="apagar">
-                                &#128465;
-                            </span>
+                            <FontAwesomeIcon color="#707f8c" icon={faTrash} />
                         </button>
                     }
                 </div>

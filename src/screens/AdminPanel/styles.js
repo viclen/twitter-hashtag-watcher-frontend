@@ -9,11 +9,11 @@ export const Header = styled.div`
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    background: #F1F1F1;
+    background: #e5edf1;
 
     ${props => props.expand && css`
         height: 100%;
-        background: #C6C6C6;
+        /* background: #C6C6C6; */
         border-bottom: none;
     `}
 
