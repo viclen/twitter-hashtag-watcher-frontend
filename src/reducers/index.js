@@ -1,3 +1,9 @@
+/**
+ * reducer para as listas e o estado da aplicacao
+ * @param {*} state o estado da aplicacao
+ * @param {*} action a acao a ser feita
+ */
+
 const tweets = (state = {
     hashtag: "",
     watching: "",

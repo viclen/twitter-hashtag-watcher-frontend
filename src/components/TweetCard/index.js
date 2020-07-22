@@ -1,27 +1,25 @@
 import React from 'react'
 import api from '../../services/api';
 import { Card } from './style';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * Componente do card do tweet
+ * @param {text, user, id, options} props propriedades do componente
+ */
+
 function TweetCard({ text, user, id, options = {} }) {
     const approveTweet = () => {
-        api.get(`/tweet/${id}/approve`).then(r => {
-
-        });
+        api.get(`/tweet/${id}/approve`);
     }
 
     const rejectTweet = () => {
-        api.get(`/tweet/${id}/reject`).then(r => {
-
-        });
+        api.get(`/tweet/${id}/reject`);
     }
 
     const deleteTweet = () => {
-        api.delete(`/tweet/${id}`).then(r => {
-
-        });
+        api.delete(`/tweet/${id}`);
     }
 
     return (

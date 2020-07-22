@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import socketIOClient from "socket.io-client";
 
+/**
+ * hooks para uso da conexao de socket
+ */
 export default function useSocket() {
     const [socket, setSocket] = useState(null);
 
