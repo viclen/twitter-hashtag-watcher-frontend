@@ -28,15 +28,3 @@ export const Mosaic = styled.div`
         column-count: 1;
     }
 `;
-
-
-export const Hashtag = styled.div`
-    background: #FFFFFFBB;
-    position: fixed;
-    bottom: 5px;
-    left: 5px;
-    border-radius: 5px;
-    font-size: 2rem;
-    color: #099EE0;
-    padding: 2px 5px;
-`;

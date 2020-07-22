@@ -68,7 +68,7 @@ function ScreenView() {
 
     return (
         <>
-            <Header expand={!watching}>
+            <Header expand={!watching && !list.length && !approved.length && !rejected.length}>
                 <div>
                     Twitter Hashtag Watcher
                 </div>

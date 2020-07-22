@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 import TweetCard from '../../components/TweetCard';
-import { Mosaic, Hashtag } from './style';
+import { Mosaic } from './style';
 import './style.css';
 import { Container } from 'react-bootstrap';
 
