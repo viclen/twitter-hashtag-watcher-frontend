@@ -4,10 +4,9 @@ export const Card = styled.div`
   position: relative;
   padding: .75rem 1.25rem;
   margin-bottom: 0.5rem;
-  border: 1px solid #b8daff;
+  background-color: #C6C6C6;
   border-radius: .25rem;
-  color: #000;
-  background-color: #cce5ff;
+  color: #333;
   word-wrap: break-word;
   white-space: normal;
 
@@ -19,7 +18,7 @@ export const Card = styled.div`
 
     .title {
       flex: 1;
-      color: #000;
+      color: #333;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
@@ -43,7 +42,7 @@ export const Card = styled.div`
     }
 
     .screen-name {
-      color: #000000AA;
+      color: #333;
       font-size: 0.9rem;
       overflow: hidden;
       text-overflow: ellipsis;

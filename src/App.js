@@ -5,12 +5,13 @@ import {
   Route
 } from "react-router-dom";
 import { connect } from 'react-redux';
-import { Container } from "react-bootstrap";
 
 import { setList, setApproved, setRejected, setHashtag, setWatching, setLanguage } from './actions';
 import useSocket from "./hooks/Socket";
 import AdminPanel from "./screens/AdminPanel";
 import ScreenView from "./screens/ScreenView";
+
+import './App.css';
 
 function App({ setList, setApproved, setRejected, setHashtag, setWatching, setLanguage }) {
   let socket = useSocket();
@@ -30,22 +31,16 @@ function App({ setList, setApproved, setRejected, setHashtag, setWatching, setLa
       setData(data);
     });
     socket.on("change", data => setData(data));
-
-    // eslint-disable-next-line
   }, [socket]);
 
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/admin">
-          <Container>
-            <AdminPanel />
-          </Container>
+          <AdminPanel />
         </Route>
         <Route path="/">
-          <Container fluid={true}>
-            <ScreenView />
-          </Container>
+          <ScreenView />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import api from '../../services/api';
 import { setHashtag, setWatching, setLanguage } from '../../actions';
-import { Col, Button, Row, Form, InputGroup } from 'react-bootstrap';
+import { Button, Row, Form, InputGroup, Container } from 'react-bootstrap';
 import TweetList from '../../components/TweetList';
 import { connect } from 'react-redux';
+import { Header } from './styles';
 
 const SUPPORTED_LANGUAGES = {
     pt: 'Português',
@@ -50,15 +51,15 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
 
     return (
         <>
-            <Row>
-                <Col>
-                    
-                </Col>
-                <Col>
+            <Header expand={!watching}>
+                <div>
+                    LOGO
+                </div>
+                <div>
                     <InputGroup>
                         <Form.Control disabled={watching} value={query} type="text" onChange={({ target }) => setQuery(target.value)}></Form.Control>
 
-                        <Form.Control className="custom-select" as="select" value={lang} onChange={({ target }) => setLang(target.value)}>
+                        <Form.Control disabled={watching} className="custom-select" as="select" value={lang} onChange={({ target }) => setLang(target.value)}>
                             <option value="">Todos os idiomas</option>
                             {Object.keys(SUPPORTED_LANGUAGES).map(key => (
                                 <option key={key} value={key}>{SUPPORTED_LANGUAGES[key]}</option>
@@ -66,18 +67,21 @@ function ScreenView({ list, approved, rejected, hashtag, watching, language }) {
                         </Form.Control>
 
                         <InputGroup.Append>
-                            <Button onClick={() => watching ? stopWatching() : startWatching()}>
+                            <Button variant="secondary" onClick={() => watching ? stopWatching() : startWatching()}>
                                 {watching ? "Parar" : "Começar"}
                             </Button>
                         </InputGroup.Append>
                     </InputGroup>
-                </Col>
-            </Row>
-            <Row>
-                <TweetList tweets={approved} title="Aprovados" options={{ reject: true }} />
-                <TweetList tweets={list} title="Lista" options={{ approve: true, reject: true, delete: true }} />
-                <TweetList tweets={rejected} title="Reprovados" options={{ approve: true, delete: true }} />
-            </Row>
+                </div>
+            </Header>
+            <div style={{ height: '90px' }}></div>
+            <Container>
+                <Row>
+                    <TweetList tweets={approved} title="Aprovados" options={{ reject: true }} />
+                    <TweetList tweets={list} title="Lista" options={{ approve: true, reject: true, delete: true }} />
+                    <TweetList tweets={rejected} title="Reprovados" options={{ approve: true, delete: true }} />
+                </Row>
+            </Container>
         </>
     );
 }

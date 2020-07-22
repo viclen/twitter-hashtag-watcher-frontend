@@ -4,6 +4,7 @@ export const Mosaic = styled.div`
     width: 100%;
     column-count: 4;
     column-gap: 1em;
+    margin-top: 0.5em;
 
     .item {
         display: inline-block;
@@ -26,4 +27,16 @@ export const Mosaic = styled.div`
     @media only screen and (max-width: 539px) {
         column-count: 1;
     }
+`;
+
+
+export const Hashtag = styled.div`
+    background: #FFFFFFBB;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    border-radius: 5px;
+    font-size: 2rem;
+    color: #099EE0;
+    padding: 2px 5px;
 `;

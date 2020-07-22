@@ -6,7 +6,7 @@ function TweetList({ tweets, title, options }) {
     return (
         <>
             <Col>
-                <h2 className="text-center">{title}</h2>
+                <h2 className="text-center title">{title}</h2>
 
                 {!!tweets && tweets.map((tweet, index) => (
                     <TweetCard key={index.toString()} {...tweet} options={options} ></TweetCard>
