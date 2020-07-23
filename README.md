@@ -1,5 +1,12 @@
 # Twitter Hashtag Watcher (Backend)
 
+## Demo
+
+A primeira imagem mostra a tela de moderaçao dos tweets. A segunda imagem mostra como será a visualização do telão.
+
+![Admin Panel](./git-img/admin.png)
+![Screen View](./git-img/screen.png)
+
 ## Sobre o projeto
 
 Essa aplicação foi criada para o processo seletivo da Globo.
