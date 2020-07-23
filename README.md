@@ -10,9 +10,11 @@ O frontend da aplicação foi feito em ReactJS, usando websockets para comunica�
 
 ## Demo
 
-A primeira imagem mostra a tela de moderaçao dos tweets. A segunda imagem mostra como será a visualização do telão.
+A imagem a seguir mostra a tela de moderaçao dos tweets:
 
 ![Admin Panel](./git-img/admin.png)
+
+E essa é a visualização do telão.
 ![Screen View](./git-img/screen.png)
 
 ## Primeiros passos
