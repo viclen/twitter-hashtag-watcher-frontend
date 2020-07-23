@@ -19,7 +19,7 @@ E essa é a visualização do telão.
 
 ## Primeiros passos
 
-Antes de iniciar o servidor, edite o arquivo `.env-example` alterando a variável REACT_APP_SERVER para o endereço IP do backend. Após isso, renomeie o arquivo para `.env`.
+Antes de iniciar a aplicação, edite o arquivo `.env-example` alterando a variável REACT_APP_SERVER para o endereço IP do backend. Após isso, renomeie o arquivo para `.env`.
 
 ### Instalação
 
