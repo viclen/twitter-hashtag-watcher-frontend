@@ -1,12 +1,5 @@
 # Twitter Hashtag Watcher (Backend)
 
-## Demo
-
-A primeira imagem mostra a tela de moderaçao dos tweets. A segunda imagem mostra como será a visualização do telão.
-
-![Admin Panel](./git-img/admin.png)
-![Screen View](./git-img/screen.png)
-
 ## Sobre o projeto
 
 Essa aplicação foi criada para o processo seletivo da Globo.
@@ -14,6 +7,13 @@ Essa aplicação foi criada para o processo seletivo da Globo.
 O objetivo é criar um aplicação controle que receba tweets com determinada hashtag e que, após serem aprovados, sejam mostrados em um telão.
 
 O frontend da aplicação foi feito em ReactJS, usando websockets para comunicação com o backend.
+
+## Demo
+
+A primeira imagem mostra a tela de moderaçao dos tweets. A segunda imagem mostra como será a visualização do telão.
+
+![Admin Panel](./git-img/admin.png)
+![Screen View](./git-img/screen.png)
 
 ## Primeiros passos
 
