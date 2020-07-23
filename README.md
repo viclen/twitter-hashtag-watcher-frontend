@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Twitter Hashtag Watcher (Backend)
 
-## Available Scripts
+## Sobre o projeto
 
-In the project directory, you can run:
+Essa aplicação foi criada para o processo seletivo da Globo.
 
-### `yarn start`
+O objetivo é criar um aplicação controle que receba tweets com determinada hashtag e que, após serem aprovados, sejam mostrados em um telão.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O frontend da aplicação foi feito em ReactJS, usando websockets para comunicação com o backend.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Primeiros passos
 
-### `yarn test`
+Antes de iniciar o servidor, edite o arquivo `.env-example` alterando a variável REACT_APP_SERVER para o endereço IP do backend. Após isso, renomeie o arquivo para `.env`.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instalação
 
-### `yarn build`
+Para instalar as dependências do projeto, basta rodar o seguinte comando:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Usuários de yarn:
+`yarn`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Usuários de npm:
+`npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Comandos
 
-### `yarn eject`
+### Rodar servidor
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Usuários de yarn:
+`yarn start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Usuários de npm:
+`npm run start`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Fazer a build do projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Usuários de yarn:
+`yarn build`
 
-## Learn More
+Usuários de npm:
+`npm run build`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Os arquivos da build serão salvos na pasta build.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Rodar uma build do projeto
 
-### Code Splitting
+Se você quiser servir somente a build do projeto, use o comando:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Usuários de yarn:
+`yarn serve`
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Usuários de npm:
+`npm run serve`
