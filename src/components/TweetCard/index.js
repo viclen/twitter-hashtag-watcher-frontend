@@ -10,14 +10,23 @@ import { faThumbsUp, faThumbsDown, faTrash } from '@fortawesome/free-solid-svg-i
  */
 
 function TweetCard({ text, user, id, options = {} }) {
+    /**
+     * request para aprovar o tweet
+     */
     const approveTweet = () => {
         api.get(`/tweet/${id}/approve`);
     }
 
+    /**
+     * request para rejeitar o tweet
+     */
     const rejectTweet = () => {
         api.get(`/tweet/${id}/reject`);
     }
 
+    /**
+     * request para apagar o tweet
+     */
     const deleteTweet = () => {
         api.delete(`/tweet/${id}`);
     }

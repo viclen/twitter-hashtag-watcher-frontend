@@ -7,10 +7,17 @@ import socketIOClient from "socket.io-client";
 export default function useSocket() {
     const [socket, setSocket] = useState(null);
 
+    /**
+     * tratamento de erros
+     * @param e erro a ser tratado
+     */
     const handleErrors = (e) => {
-        
+        console.log(e);
     }
 
+    /**
+     * funcao para fazer a conexão com o socket
+     */
     useEffect(() => {
         let socketIO = socketIOClient(process.env.REACT_APP_SERVER);
 

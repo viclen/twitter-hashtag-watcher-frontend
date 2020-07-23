@@ -2,6 +2,10 @@ import React from 'react'
 import TweetCard from '../TweetCard';
 import { Col } from 'react-bootstrap';
 
+/**
+ * lista de tweets usada no painel de controle
+ * @param {tweets, title, options} post propriedades do componente
+ */
 function TweetList({ tweets, title, options }) {
     return (
         <>

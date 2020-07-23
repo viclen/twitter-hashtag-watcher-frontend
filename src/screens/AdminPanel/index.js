@@ -6,6 +6,7 @@ import TweetList from '../../components/TweetList';
 import { useSelector, useDispatch } from 'react-redux';
 import { Header } from './styles';
 
+// linguas suportadas pelo twitter
 const SUPPORTED_LANGUAGES = {
     pt: 'Português',
     en: 'Inglês',
@@ -20,7 +21,12 @@ const SUPPORTED_LANGUAGES = {
     es: 'Espanhol',
 }
 
-function ScreenView() {
+/**
+ * tela para moderação dos tweets
+ */
+function AdminPanel() {
+
+    // variaveis no estado do redux
     const hashtag = useSelector(state => state.hashtag);
     const list = useSelector(state => state.list);
     const approved = useSelector(state => state.approved);
@@ -41,25 +47,37 @@ function ScreenView() {
         setLang(language);
     }, [language]);
 
+    /**
+     * request para comecar o monitoramento
+     */
     const startWatching = () => {
         const url = '/watch/' + encodeURIComponent(query) + "?lang=" + lang;
         api.get(url).then(({ data }) => {
+            // se for bem sucedido, seta o watching pra verdadeiro
             if (data.status.toString() === "1") {
                 dispatch(setWatching(true));
             }
         }).catch(e => { });
     }
-
+    
+    /**
+     * request para parar o monitoramento
+     */
     const stopWatching = () => {
         api.get('/stop').then(({ data }) => {
+            // se for bem sucedido, seta o watching pra falso
             if (data.status.toString() === "1") {
                 dispatch(setWatching(false));
             }
         }).catch(e => { });
     }
-
+    
+    /**
+     * request para limpar os tweets e parar o monitoramento
+     */
     const clearTweets = () => {
         api.get('/clear').then(({ data }) => {
+            // se for bem sucedido, seta o watching pra falso
             if (data.status.toString() === "1") {
                 dispatch(setWatching(false));
             }
@@ -108,4 +126,4 @@ function ScreenView() {
     );
 }
 
-export default React.memo(ScreenView);
+export default React.memo(AdminPanel);

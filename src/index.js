@@ -10,7 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import dotenv from 'dotenv';
 dotenv.config();
 
+// cria o reducer
 const store = createStore(reducer)
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

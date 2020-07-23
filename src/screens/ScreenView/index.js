@@ -6,7 +6,11 @@ import { Mosaic } from './style';
 import './style.css';
 import { Container } from 'react-bootstrap';
 
+/**
+ * tela que aparecerá no telão
+ */
 function ScreenView() {
+    // variaveis do estado do redux
     const approved = useSelector(state => state.approved);
     const hashtag = useSelector(state => state.hashtag);
 
