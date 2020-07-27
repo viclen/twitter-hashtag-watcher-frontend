@@ -1,12 +1,5 @@
 # Twitter Hashtag Watcher (Backend)
 
-## Demo
-
-A primeira imagem mostra a tela de moderaçao dos tweets. A segunda imagem mostra como será a visualização do telão.
-
-![Admin Panel](./git-img/admin.png)
-![Screen View](./git-img/screen.png)
-
 ## Sobre o projeto
 
 Essa aplicação foi criada para o processo seletivo da Globo.
@@ -15,9 +8,18 @@ O objetivo é criar um aplicação controle que receba tweets com determinada ha
 
 O frontend da aplicação foi feito em ReactJS, usando websockets para comunicação com o backend.
 
+## Demo
+
+A imagem a seguir mostra a tela de moderaçao dos tweets:
+
+![Admin Panel](./git-img/admin.png)
+
+E essa é a visualização do telão.
+![Screen View](./git-img/screen.png)
+
 ## Primeiros passos
 
-Antes de iniciar o servidor, edite o arquivo `.env-example` alterando a variável REACT_APP_SERVER para o endereço IP do backend. Após isso, renomeie o arquivo para `.env`.
+Antes de iniciar a aplicação, edite o arquivo `.env-example` alterando a variável REACT_APP_SERVER para o endereço IP do backend. Após isso, renomeie o arquivo para `.env`.
 
 ### Instalação
 
