@@ -115,7 +115,7 @@ function AdminPanel() {
 
                         <InputGroup.Append>
                             <Button variant="dark" onClick={() => watching ? stopWatching() : startWatching()}>
-                                {watching ? "Parar" : "Começar"}
+                                {watching ? "Stop" : "Start"}
                             </Button>
                         </InputGroup.Append>
                     </InputGroup>
@@ -124,7 +124,8 @@ function AdminPanel() {
                     <Button variant="dark" onClick={() => clearTweets()}>
                         Reset
                     </Button>
-                    <Button variant="danger" onClick={() => enableAI()}>
+                    &nbsp;
+                    <Button variant={ai_enabled ? "danger" : "secondary"} onClick={() => enableAI()}>
                         {ai_enabled ? "Disable AI" : "Enable AI"}
                     </Button>
                 </div>
