@@ -7,10 +7,11 @@
 const tweets = (state = {
     hashtag: "",
     watching: "",
-    language: "",
+    language: "en",
     rejected: [],
     approved: [],
     list: [],
+    ai_enabled: false
 }, action) => {
     switch (action.type) {
         case 'SET_APPROVED':
@@ -30,6 +31,9 @@ const tweets = (state = {
             break;
         case 'SET_LANGUAGE':
             state.language = action.language;
+            break;
+        case 'SET_AI':
+            state.ai_enabled = action.ai_enabled;
             break;
         default:
             return state

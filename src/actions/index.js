@@ -31,3 +31,8 @@ export const setLanguage = language => ({
     type: "SET_LANGUAGE",
     language
 });
+
+export const setAI = ai_enabled => ({
+    type: "SET_AI",
+    ai_enabled
+});

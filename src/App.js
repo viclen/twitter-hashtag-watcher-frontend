@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { setList, setApproved, setRejected, setHashtag, setWatching, setLanguage } from './actions';
+import { setList, setApproved, setRejected, setHashtag, setWatching, setLanguage, setAI } from './actions';
 import useSocket from "./hooks/Socket";
 import AdminPanel from "./screens/AdminPanel";
 import ScreenView from "./screens/ScreenView";
@@ -29,6 +29,7 @@ function App() {
     dispatch(setHashtag(data.hashtag));
     dispatch(setWatching(data.watching));
     dispatch(setLanguage(data.language));
+    dispatch(setAI(data.ai_enabled));
   }, [dispatch]);
 
   useEffect(() => {
