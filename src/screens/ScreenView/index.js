@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import TweetCard from '../../components/TweetCard';
 import { Mosaic } from './style';
 import './style.css';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /**
  * tela que aparecerá no telão
@@ -17,6 +18,12 @@ function ScreenView() {
     return (
         <Container fluid={true}>
             <h1 className="text-center py-3 text-dark">
+                <Link to="/admin" className="float-left">
+                    <Button variant="light">
+                        Admin Panel
+                    </Button>
+                </Link>
+
                 {hashtag}
             </h1>
 

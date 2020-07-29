@@ -5,6 +5,7 @@ import { Button, Row, Form, InputGroup, Container } from 'react-bootstrap';
 import TweetList from '../../components/TweetList';
 import { useSelector, useDispatch } from 'react-redux';
 import { Header } from './styles';
+import { Link } from 'react-router-dom';
 
 // linguas suportadas pelo twitter
 const SUPPORTED_LANGUAGES = {
@@ -99,6 +100,11 @@ function AdminPanel() {
     return (
         <>
             <Header expand={!watching && !list.length && !approved.length && !rejected.length}>
+                <Link to="/" className="float-left">
+                    <Button variant="light">
+                        Main Screen
+                        </Button>
+                </Link>
                 <div>
                     Twitter Hashtag Watcher
                 </div>
