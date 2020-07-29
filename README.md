@@ -1,12 +1,12 @@
-# Twitter Hashtag Watcher (Backend)
+# Twitter Hashtag Watcher (Frontend)
 
 ## Sobre o projeto
 
-Essa aplicação foi criada para o processo seletivo da Globo.
-
 O objetivo é criar um aplicação controle que receba tweets com determinada hashtag e que, após serem aprovados, sejam mostrados em um telão.
 
-O frontend da aplicação foi feito em ReactJS, usando websockets para comunicação com o backend.
+O frontend foi desenvolvido em ReactJS fazendo uso de websockets para comunicação com o backend.
+
+O backend da aplicacao está disponível [aqui](https://github.com/viclen/twitter-hashtag-watcher-backend).
 
 ## Demo
 
@@ -16,6 +16,18 @@ A imagem a seguir mostra a tela de moderaçao dos tweets:
 
 E essa é a visualização do telão.
 ![Screen View](./git-img/screen.png)
+
+## IA
+
+A inteligência artificial desse projeto foi feita usando duas ferramentas:
+
+### Bert - Natural Language Processing
+
+A IA da google para processamento, compreensão e análise de linguagem natural. Esse recurso foi desenvolvido em python e está disponível [aqui](https://github.com/viclen/nlp-twitter-python).
+
+### Vader Sentiment Analysis
+
+Em conjunto com a IA de linguagem natural, foi usado o [VaderSentiment](https://github.com/cjhutto/vaderSentiment) para fazer a análise do tweet dentro do próprio servidor Node.js.
 
 ## Primeiros passos
 
