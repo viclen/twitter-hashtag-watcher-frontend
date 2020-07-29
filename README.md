@@ -19,7 +19,7 @@ E essa é a visualização do telão.
 
 ## IA
 
-A inteligência artificial desse projeto foi feita usando duas ferramentas:
+A inteligência artificial desse projeto foi feita usando duas ferramentas: Bert e Vader. Vale destacar que a única linguagem disponível no momento é o inglês.
 
 ### Bert - Natural Language Processing
 
